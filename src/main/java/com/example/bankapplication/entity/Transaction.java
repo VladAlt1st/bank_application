@@ -1,25 +1,48 @@
 package com.example.bankapplication.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.example.bankapplication.entity.enums.TransactionType;
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
+@Entity
+@Table(name = "transactions")
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 public class Transaction {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    private Long debitAccountId;
-    private Long creditAccountId;
-    private int type;
-    private long amount;
+
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    private TransactionType type;
+
+    @Column(name = "amount")
+    private BigDecimal amount;
+
+    @Column(name = "description")
     private String description;
-    private LocalDateTime createdAt;
+
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private ZonedDateTime createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "debit_account_id", referencedColumnName = "id")
+    private Account debitAccount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "credit_account_id", referencedColumnName = "id")
+    private Account creditAccount;
 
     @Override
     public boolean equals(Object o) {
@@ -32,5 +55,18 @@ public class Transaction {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", type=" + type +
+                ", amount=" + amount +
+                ", description='" + description + '\'' +
+                ", createdAt=" + createdAt +
+                ", debitAccount=" + debitAccount +
+                ", creditAccount=" + creditAccount +
+                '}';
     }
 }
