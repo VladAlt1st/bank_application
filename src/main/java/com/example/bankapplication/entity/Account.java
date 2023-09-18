@@ -1,7 +1,6 @@
 package com.example.bankapplication.entity;
 
 import com.example.bankapplication.entity.enums.AccountStatus;
-import com.example.bankapplication.entity.enums.AccountType;
 import com.example.bankapplication.entity.enums.CurrencyCode;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,12 +12,13 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
-@Table(name = "accounts")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+
+@Entity
+@Table(name = "accounts")
 public class Account {
 
     @Id
@@ -29,11 +29,6 @@ public class Account {
     @Column(name = "name")
     private String name;
 
-    //возможно убрать
-    @Column(name = "type")
-    @Enumerated(EnumType.STRING)
-    private AccountType type;
-
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
@@ -41,7 +36,6 @@ public class Account {
     @Column(name = "balance")
     private BigDecimal balance;
 
-    //возможно убрать
     @Column(name = "currency_code")
     @Enumerated(EnumType.STRING)
     private CurrencyCode currencyCode;
@@ -94,7 +88,6 @@ public class Account {
         return "Account{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", type=" + type +
                 ", status=" + status +
                 ", balance=" + balance +
                 ", currencyCode=" + currencyCode +

@@ -1,0 +1,113 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert users test data
+      author: Vladyslav Rudnytskyi
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: role
+                  value: 'CLIENT'
+              - column:
+                  name: status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '4321123434321234'
+              - column:
+                  name: first_name
+                  value: 'Mark'
+              - column:
+                  name: last_name
+                  value: 'Fisher'
+              - column:
+                  name: email
+                  value: 'mark2023@gmail.com'
+              - column:
+                  name: password
+                  value: '123mark'
+              - column:
+                  name: address
+                  value: '8 Hazelcrest Center'
+              - column:
+                  name: phone
+                  value: '48977342744'
+              - column:
+                  name: created_at
+                  value: '2022-11-08'
+              - column:
+                  name: updated_at
+                  value: '2023-06-01'
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: role
+                  value: 'CLIENT'
+              - column:
+                  name: status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '1234123432121234'
+              - column:
+                  name: first_name
+                  value: 'Bob'
+              - column:
+                  name: last_name
+                  value: 'Jones'
+              - column:
+                  name: email
+                  value: 'jones1992@gmail.com'
+              - column:
+                  name: password
+                  value: '1992best'
+              - column:
+                  name: address
+                  value: '6 Mallory Hill'
+              - column:
+                  name: phone
+                  value: '48468574833'
+              - column:
+                  name: created_at
+                  value: '2023-04-28'
+              - column:
+                  name: updated_at
+                  value: '2023-09-11'
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: role
+                  value: 'MANAGER'
+              - column:
+                  name: status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '2231123432121234'
+              - column:
+                  name: first_name
+                  value: 'Anna'
+              - column:
+                  name: last_name
+                  value: 'Clark'
+              - column:
+                  name: email
+                  value: 'anna666@gmail.com'
+              - column:
+                  name: password
+                  value: '6362277'
+              - column:
+                  name: address
+                  value: '22 Central Hill'
+              - column:
+                  name: phone
+                  value: '48462574887'
+              - column:
+                  name: created_at
+                  value: '2022-09-28'
+              - column:
+                  name: updated_at
+                  value: '2023-09-11'

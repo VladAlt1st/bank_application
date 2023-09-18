@@ -11,12 +11,13 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
-@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -24,7 +25,7 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "type")
+    @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -43,6 +44,9 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "address")
     private String address;

@@ -10,12 +10,13 @@ import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-@Entity
-@Table(name = "agreements")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+
+@Entity
+@Table(name = "agreements")
 public class Agreement {
 
     @Id

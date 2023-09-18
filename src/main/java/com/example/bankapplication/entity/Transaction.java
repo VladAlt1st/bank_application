@@ -1,6 +1,6 @@
 package com.example.bankapplication.entity;
 
-import com.example.bankapplication.entity.enums.TransactionType;
+import com.example.bankapplication.entity.enums.TransactionStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -9,12 +9,13 @@ import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-@Entity
-@Table(name = "transactions")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+
+@Entity
+@Table(name = "transactions")
 public class Transaction {
 
     @Id
@@ -22,9 +23,9 @@ public class Transaction {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "type")
+    @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private TransactionType type;
+    private TransactionStatus type;
 
     @Column(name = "amount")
     private BigDecimal amount;
@@ -70,3 +71,5 @@ public class Transaction {
                 '}';
     }
 }
+
+

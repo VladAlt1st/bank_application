@@ -1,7 +1,7 @@
 package com.example.bankapplication.entity.enums;
 
-public enum AgreementStatus {
+public enum TransactionStatus {
     PENDING,
-    APPROVED,
-    DECLINE
+    COMPLETED,
+    CANCELED
 }

@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes.v0.0.1/create-tables.yml
+  - include:
+      file: db/changelog/changes.v0.0.1/insert_users_test_data.yml
+  - include:
+      file: db/changelog/changes.v0.0.1/insert_accounts_test_data.yml
+  - include:
+      file: db/changelog/changes.v0.0.1/insert_transactions_test_data.yml
+  - include:
+      file: db/changelog/changes.v0.0.1/insert_products_data.yml
+  - include:
+      file: db/changelog/changes.v0.0.1/insert_agreements_test_data.yml
