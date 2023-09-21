@@ -76,6 +76,7 @@ ___
 | 	debit_account_id  | bigint        | transaction's debit account                   | 
 | 	credit_account_id | bigint        | transaction's credit account                  | 
 | 	status            | varchar(20)   | transaction status                            | 
+| type               | varchar(20)   | transaction type                              |
 | 	amount            | decimal(12,2) | transaction amount in the account currency    | 
 | 	description       | varchar(255)  | description of transaction                    | 
 | 	created_at        | timestamp     | timestamp of row creation                     | 

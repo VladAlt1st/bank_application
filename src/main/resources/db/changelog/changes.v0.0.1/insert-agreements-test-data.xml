@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="insert agreements data 1" author="Vladyslav Rudnytskyi">
+        <insert tableName="agreements">
+            <column name="account_id" value="1"/>
+            <column name="manager_id" value="3"/>
+            <column name="product_id" value="1"/>
+            <column name="status" value="APPROVED"/>
+            <column name="sum" value="0"/>
+            <column name="created_at" value="2022-11-09"/>
+            <column name="updated_at" value="2023-09-16"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert agreements data 2" author="Vladyslav Rudnytskyi">
+        <insert tableName="agreements">
+            <column name="account_id" value="2"/>
+            <column name="manager_id" value="3"/>
+            <column name="product_id" value="2"/>
+            <column name="status" value="APPROVED"/>
+            <column name="sum" value="10000"/>
+            <column name="created_at" value="2023-04-29"/>
+            <column name="updated_at" value="2023-09-16"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

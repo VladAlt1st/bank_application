@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="create users table" author="Vladyslav Rudnytskyi">
+        <createTable tableName="users">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="role" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tax_code" type="varchar(20)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="first_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(60)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(80)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="varchar(20)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create accounts table" author="Vladyslav Rudnytskyi">
+        <createTable tableName="accounts">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="client_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="client_id" references="users(id)"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="balance" type="decimal(15,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency_code" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create transactions table" author="Vladyslav Rudnytskyi">
+        <createTable tableName="transactions">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="debit_account_id" type="bigint">
+                <constraints primaryKey="false" foreignKeyName="debit_account_id" references="accounts(id)"/>
+            </column>
+            <column name="credit_account_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="credit_account_id" references="accounts(id)"/>
+            </column>
+            <column name="status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="decimal(12,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create products table" author="Vladyslav Rudnytskyi">
+        <createTable tableName="products">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(70)">
+                <constraints nullable= "false"/>
+            </column>
+            <column name="status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency_code" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="interest_rate" type="decimal(6,1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_limit" type="decimal(15,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create table agreements" author="Vladyslav Rudnytskyi">
+        <createTable tableName="agreements">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="account_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="account_id" references="accounts(id)"/>
+            </column>
+            <column name="manager_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="manager_id" references="users(id)"/>
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="product_id" references="products(id)"/>
+            </column>
+            <column name="status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sum" type="decimal(15,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

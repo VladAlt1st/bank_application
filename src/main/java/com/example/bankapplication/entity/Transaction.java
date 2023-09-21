@@ -1,6 +1,7 @@
 package com.example.bankapplication.entity;
 
 import com.example.bankapplication.entity.enums.TransactionStatus;
+import com.example.bankapplication.entity.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -25,7 +26,11 @@ public class Transaction {
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private TransactionStatus type;
+    private TransactionStatus status;
+
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    private TransactionType type;
 
     @Column(name = "amount")
     private BigDecimal amount;

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="insert user test data 1" author="Vladyslav Rudnytskyi">
+        <insert tableName="users">
+            <column name="role" value="CLIENT"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="tax_code" value="95042034245"/>
+            <column name="first_name" value="Mark"/>
+            <column name="last_name" value="Fisher"/>
+            <column name="email" value="mark2023@gmail.com"/>
+            <column name="password" value="123Mark"/>
+            <column name="address" value="8 Hazelcrest Center"/>
+            <column name="phone" value="48977342744"/>
+            <column name="created_at" value="2022-11-08"/>
+            <column name="updated_at" value="2023-06-01"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert user test data 2" author="Vladyslav Rudnytskyi">
+        <insert tableName="users">
+            <column name="role" value="CLIENT"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="tax_code" value="92081034641"/>
+            <column name="first_name" value="Bob"/>
+            <column name="last_name" value="Jones"/>
+            <column name="email" value="jones1992@gmail.com"/>
+            <column name="password" value="1992bestPro"/>
+            <column name="address" value="6 Mallory Hill"/>
+            <column name="phone" value="48468574833"/>
+            <column name="created_at" value="2023-04-28"/>
+            <column name="updated_at" value="2023-09-11"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert user test data 3" author="Vladyslav Rudnytskyi">
+        <insert tableName="users">
+            <column name="role" value="MANAGER"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="tax_code" value="99012113455"/>
+            <column name="first_name" value="Anna"/>
+            <column name="last_name" value="Clark"/>
+            <column name="email" value="anna1999@gmail.com"/>
+            <column name="password" value="636ANN2277"/>
+            <column name="address" value="22 Central Hill"/>
+            <column name="phone" value="48462574887"/>
+            <column name="created_at" value="2022-09-28"/>
+            <column name="updated_at" value="2023-09-11"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="insert transactions test data 1" author="Vladyslav Rudnytskyi">
+        <insert tableName="transactions">
+            <column name="debit_account_id" value="1"/>
+            <column name="credit_account_id" value="2"/>
+            <column name="status" value="COMPLETED"/>
+            <column name="type" value="TRANSFER"/>
+            <column name="amount" value="100"/>
+            <column name="description" value="money transfer"/>
+            <column name="created_at" value="2023-09-16"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert transactions test data 2" author="Vladyslav Rudnytskyi">
+        <insert tableName="transactions">
+            <column name="debit_account_id" value="2"/>
+            <column name="credit_account_id" value="1"/>
+            <column name="status" value="CANCELED"/>
+            <column name="type" value="TRANSFER"/>
+            <column name="amount" value="250"/>
+            <column name="description" value="money transfer"/>
+            <column name="created_at" value="2023-08-14"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
