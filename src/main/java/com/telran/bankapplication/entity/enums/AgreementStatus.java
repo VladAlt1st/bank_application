@@ -1,4 +1,4 @@
-package com.example.bankapplication.entity.enums;
+package com.telran.bankapplication.entity.enums;
 
 public enum AgreementStatus {
     PENDING,

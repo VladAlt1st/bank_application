@@ -2,18 +2,23 @@ spring:
   main:
     banner-mode: off
 
-  datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  h2:
+#    console:
+#      enabled: true
 
-  h2:
-    console:
-      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/testDb
+    username: root
+    password: 8382299GHJdkfl
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+#    database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     hibernate:
       ddl-auto: validate
@@ -21,9 +26,4 @@ spring:
   liquibase:
     enabled: true
     change-log: db/changelog/changelog-master.xml
-#    drop-first: true
-
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/testDb
-#    username: root
-#    password:
+    drop-first: true

@@ -1,7 +1,8 @@
-package com.example.bankapplication.entity;
+package com.telran.bankapplication.entity;
 
-import com.example.bankapplication.entity.enums.CurrencyCode;
-import com.example.bankapplication.entity.enums.ProductStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.telran.bankapplication.entity.enums.CurrencyCode;
+import com.telran.bankapplication.entity.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -53,6 +54,7 @@ public class Product {
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
+    @JsonIgnore
     @OneToMany(
             mappedBy = "product", fetch = FetchType.LAZY
     )

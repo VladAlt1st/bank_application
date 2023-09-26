@@ -1,7 +1,8 @@
-package com.example.bankapplication.entity;
+package com.telran.bankapplication.entity;
 
-import com.example.bankapplication.entity.enums.AccountStatus;
-import com.example.bankapplication.entity.enums.CurrencyCode;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.telran.bankapplication.entity.enums.AccountStatus;
+import com.telran.bankapplication.entity.enums.CurrencyCode;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -48,6 +49,7 @@ public class Account {
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     private User client;

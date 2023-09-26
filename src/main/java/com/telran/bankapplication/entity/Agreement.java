@@ -1,6 +1,6 @@
-package com.example.bankapplication.entity;
+package com.telran.bankapplication.entity;
 
-import com.example.bankapplication.entity.enums.AgreementStatus;
+import com.telran.bankapplication.entity.enums.AgreementStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

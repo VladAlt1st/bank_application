@@ -1,7 +1,7 @@
-package com.example.bankapplication.entity;
+package com.telran.bankapplication.entity;
 
-import com.example.bankapplication.entity.enums.TransactionStatus;
-import com.example.bankapplication.entity.enums.TransactionType;
+import com.telran.bankapplication.entity.enums.TransactionStatus;
+import com.telran.bankapplication.entity.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
