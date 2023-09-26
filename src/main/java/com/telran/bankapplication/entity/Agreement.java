@@ -33,11 +33,11 @@ public class Agreement {
 
     @CreationTimestamp
     @Column(name = "created_at")
-    private ZonedDateTime createdAd;
+    private ZonedDateTime createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    private ZonedDateTime updatedAd;
+    private ZonedDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "manager_id", referencedColumnName = "id")
@@ -70,8 +70,8 @@ public class Agreement {
                 "id=" + id +
                 ", status=" + status +
                 ", sum=" + sum +
-                ", createdAd=" + createdAd +
-                ", updatedAd=" + updatedAd +
+                ", createdAd=" + createdAt +
+                ", updatedAd=" + updatedAt +
                 ", manager=" + manager +
                 ", product=" + product +
                 '}';

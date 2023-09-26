@@ -5,4 +5,6 @@ import com.telran.bankapplication.entity.Account;
 
 public interface AccountService {
     Account createAccount(AccountDto accountDto);
+
+    void deleteAccountById(Long accountId);
 }

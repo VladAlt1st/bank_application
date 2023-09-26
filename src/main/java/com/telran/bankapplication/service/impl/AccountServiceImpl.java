@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.NoSuchElementException;
 
 @Service
@@ -30,9 +31,14 @@ public class AccountServiceImpl implements AccountService {
         ));
         account.setName(accountDto.getName());
         account.setStatus(AccountStatus.valueOf(accountDto.getStatus()));
-        account.setBalance(accountDto.getBalance());
+        account.setBalance(BigDecimal.valueOf(Long.parseLong(accountDto.getBalance())));
         account.setCurrencyCode(CurrencyCode.valueOf(accountDto.getCurrencyCode()));
 
         return accountRepository.save(account);
+    }
+
+    @Override
+    public void deleteAccountById(Long accountId) {
+        accountRepository.deleteById(accountId);
     }
 }

@@ -4,10 +4,7 @@ import com.telran.bankapplication.dto.UserDto;
 import com.telran.bankapplication.entity.User;
 import com.telran.bankapplication.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
@@ -19,5 +16,10 @@ public class UserController {
     @PostMapping("/update")
     public User updateUser(@RequestBody UserDto userDto) {
         return userService.updateUser(userDto);
+    }
+
+    @PostMapping("/delete/{userId}")
+    public void deleteUserById(@PathVariable(name = "userId") Long userId) {
+        userService.deleteUserById(userId);
     }
 }

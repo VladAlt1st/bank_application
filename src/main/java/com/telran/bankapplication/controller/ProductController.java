@@ -13,7 +13,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/{productId}")
-    public Product getProductById(@PathVariable Long productId) {
+    public Product getProductById(@PathVariable(name = "productId") Long productId) {
         return productService.getProductById(productId);
     }
 }

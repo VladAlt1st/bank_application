@@ -15,7 +15,7 @@ public class AgreementController {
     private final AgreementService agreementService;
 
     @PostMapping("/delete/{agreementId}")
-    public void deleteAgreementById(@PathVariable Long agreementId) {
+    public void deleteAgreementById(@PathVariable(name = "agreementId") Long agreementId) {
         agreementService.deleteAgreementById(agreementId);
     }
 }

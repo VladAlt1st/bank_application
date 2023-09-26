@@ -42,11 +42,11 @@ public class Transaction {
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(/*fetch = FetchType.LAZY*/)
     @JoinColumn(name = "debit_account_id", referencedColumnName = "id")
     private Account debitAccount;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(/*fetch = FetchType.LAZY*/)
     @JoinColumn(name = "credit_account_id", referencedColumnName = "id")
     private Account creditAccount;
 

@@ -56,7 +56,8 @@ public class Product {
 
     @JsonIgnore
     @OneToMany(
-            mappedBy = "product", fetch = FetchType.LAZY
+            mappedBy = "product", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL
     )
     private List<Agreement> agreements;
 

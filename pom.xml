@@ -43,12 +43,6 @@
 			<scope>test</scope>
 		</dependency>
 		<!--			database and migration			-->
-		<!--<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>2.2.222</version>
-			<scope>runtime</scope>
-		</dependency>-->
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
@@ -79,18 +73,6 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.liquibase</groupId>
-				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>${liquibase.version}</version>
-				<configuration>
-					<driver>com.mysql.cj.jdbc.Driver</driver>
-					<url>jdbc:mysql://localhost:3306/testDb</url>
-					<username>root</username>
-					<password>8382299GHJdkfl</password>
-					<outputChangeLogFile>db/changelog/changelog-master.xml</outputChangeLogFile>
 				</configuration>
 			</plugin>
 		</plugins>
