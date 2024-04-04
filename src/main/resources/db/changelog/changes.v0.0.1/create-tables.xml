@@ -15,9 +15,6 @@
             <column name="status" type="varchar(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="tax_code" type="varchar(20)">
-                <constraints nullable="false" unique="true"/>
-            </column>
             <column name="first_name" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
@@ -34,7 +31,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="phone" type="varchar(20)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="created_at" type="timestamp">
                 <constraints nullable="false"/>
@@ -53,7 +50,7 @@
             <column name="client_id" type="bigint">
                 <constraints nullable="false" foreignKeyName="client_id" references="users(id)"/>
             </column>
-            <column name="name" type="varchar(100)">
+            <column name="account_number" type="varchar(100)">
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="status" type="varchar(20)">
@@ -110,6 +107,9 @@
             </column>
             <column name="name" type="varchar(70)">
                 <constraints nullable= "false"/>
+            </column>
+            <column name="type" type="varchar(20)">
+                <constraints nullable="false"/>
             </column>
             <column name="status" type="varchar(20)">
                 <constraints nullable="false"/>

@@ -1,24 +1,24 @@
 package com.telran.bankapplication.service.impl;
 
-import com.telran.bankapplication.entity.Product;
+import com.telran.bankapplication.dto.ProductDto;
+import com.telran.bankapplication.mapper.ProductMapper;
 import com.telran.bankapplication.repository.ProductRepository;
 import com.telran.bankapplication.service.ProductService;
+import com.telran.bankapplication.service.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductMapper productMapper;
+
     @Override
-    @Transactional
-    public Product getProductById(Long productId) {
-        return productRepository.findProductById(productId).orElseThrow(
-                NoSuchElementException::new
+    public ProductDto getProductById(Long productId) {
+        return productMapper.toDto(productRepository.findById(productId).orElseThrow(
+                () -> new EntityNotFoundException(String.format("Product with id %s not found.", productId)))
         );
     }
 }

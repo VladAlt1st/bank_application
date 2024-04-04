@@ -8,7 +8,6 @@
         <insert tableName="users">
             <column name="role" value="CLIENT"/>
             <column name="status" value="ACTIVE"/>
-            <column name="tax_code" value="95042034245"/>
             <column name="first_name" value="Mark"/>
             <column name="last_name" value="Fisher"/>
             <column name="email" value="mark2023@gmail.com"/>
@@ -24,7 +23,6 @@
         <insert tableName="users">
             <column name="role" value="CLIENT"/>
             <column name="status" value="ACTIVE"/>
-            <column name="tax_code" value="92081034641"/>
             <column name="first_name" value="Bob"/>
             <column name="last_name" value="Jones"/>
             <column name="email" value="jones1992@gmail.com"/>
@@ -40,7 +38,6 @@
         <insert tableName="users">
             <column name="role" value="MANAGER"/>
             <column name="status" value="ACTIVE"/>
-            <column name="tax_code" value="99012113455"/>
             <column name="first_name" value="Anna"/>
             <column name="last_name" value="Clark"/>
             <column name="email" value="anna1999@gmail.com"/>

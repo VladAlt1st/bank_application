@@ -1,11 +1,14 @@
 package com.telran.bankapplication.repository;
 
 import com.telran.bankapplication.entity.User;
-import org.springframework.data.repository.CrudRepository;
+import com.telran.bankapplication.entity.enums.UserStatus;
+import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 
-import java.util.Optional;
+import java.util.List;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findUserByTaxCode(String taxCode);
+    @Query("select u from User u where u.role = 'CLIENT' and u.status = :status")
+    List<User> getAllClientsByStatus(@Param("status") UserStatus status);
 }

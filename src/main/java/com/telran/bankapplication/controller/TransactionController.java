@@ -1,21 +1,33 @@
 package com.telran.bankapplication.controller;
 
+import com.telran.bankapplication.dto.TransactionDto;
 import com.telran.bankapplication.service.TransactionService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@Validated
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("/transaction")
 @RequiredArgsConstructor
 public class TransactionController {
 
     private final TransactionService transactionService;
 
-    @PostMapping("/delete/{transactionId}")
-    public void deleteTransactionById(@PathVariable(name = "transactionId") Long transactionId) {
-        transactionService.deleteTransactionById(transactionId);
+    @PostMapping("/new")
+    @ResponseStatus(HttpStatus.CREATED)
+    public TransactionDto createTransaction(@RequestBody @Valid TransactionDto transactionDto) {
+        return transactionService.createTransaction(transactionDto);
+    }
+
+    @GetMapping("/all/account/{number}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<TransactionDto> getAllTransactionWhereAccountIs(@PathVariable("number") @Pattern(regexp = "^\\d{16}$") String number) {
+        return transactionService.getAllTransactionWhereAccountNumberIs(number);
     }
 }

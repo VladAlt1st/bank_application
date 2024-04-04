@@ -7,7 +7,7 @@
     <changeSet id="insert accounts test data 1" author="Vladyslav Rudnytskyi">
         <insert tableName="accounts">
             <column name="client_id" value="1"/>
-            <column name="name" value="PL10 1050 0099 7603 1234 5678 9123"/>
+            <column name="account_number" value="1234432111221111"/>
             <column name="status" value="ACTIVE"/>
             <column name="balance" value="1200"/>
             <column name="currency_code" value="USD"/>
@@ -19,10 +19,10 @@
     <changeSet id="insert accounts test data 2" author="Vladyslav Rudnytskyi">
         <insert tableName="accounts">
             <column name="client_id" value="2"/>
-            <column name="name" value="PL10 1050 0099 7603 1234 4435 9456"/>
+            <column name="account_number" value="1234432111221112"/>
             <column name="status" value="ACTIVE"/>
             <column name="balance" value="2200"/>
-            <column name="currency_code" value="USD"/>
+            <column name="currency_code" value="PLN"/>
             <column name="created_at" value="2023-04-29"/>
             <column name="updated_at" value="2023-09-16"/>
         </insert>

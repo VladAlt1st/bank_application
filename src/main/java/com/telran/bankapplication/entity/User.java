@@ -1,12 +1,9 @@
 package com.telran.bankapplication.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.telran.bankapplication.entity.enums.UserStatus;
 import com.telran.bankapplication.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -34,9 +31,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
-    @Column(name = "tax_code")
-    private String taxCode;
-
     @Column(name = "first_name")
     private String firstName;
 
@@ -55,22 +49,18 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @CreationTimestamp
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
 
-    @UpdateTimestamp
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
-    @JsonIgnore
     @OneToMany(
             mappedBy = "client", fetch = FetchType.LAZY,
             orphanRemoval = true, cascade = CascadeType.ALL
     )
     private List<Account> clientAccounts;
 
-    @JsonIgnore
     @OneToMany(
             mappedBy = "manager", fetch = FetchType.LAZY,
             orphanRemoval = true, cascade = CascadeType.ALL
@@ -96,10 +86,10 @@ public class User {
                 "id=" + id +
                 ", role=" + role +
                 ", status=" + status +
-                ", taxCode='" + taxCode + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", createdAt=" + createdAt +

@@ -1,8 +1,8 @@
 package com.telran.bankapplication.service;
 
-import com.telran.bankapplication.entity.Product;
+import com.telran.bankapplication.dto.ProductDto;
 
 public interface ProductService {
 
-    Product getProductById(Long productId);
+    ProductDto getProductById(Long productId);
 }

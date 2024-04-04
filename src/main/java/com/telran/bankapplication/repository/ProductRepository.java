@@ -1,11 +1,7 @@
 package com.telran.bankapplication.repository;
 
 import com.telran.bankapplication.entity.Product;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
-
-public interface ProductRepository extends CrudRepository<Product, Long> {
-
-    Optional<Product> findProductById(Long id);
+public interface ProductRepository extends JpaRepository<Product, Long> {
 }

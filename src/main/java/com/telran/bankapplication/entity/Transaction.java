@@ -4,7 +4,6 @@ import com.telran.bankapplication.entity.enums.TransactionStatus;
 import com.telran.bankapplication.entity.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -38,15 +37,14 @@ public class Transaction {
     @Column(name = "description")
     private String description;
 
-    @CreationTimestamp
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
 
-    @ManyToOne(/*fetch = FetchType.LAZY*/)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "debit_account_id", referencedColumnName = "id")
     private Account debitAccount;
 
-    @ManyToOne(/*fetch = FetchType.LAZY*/)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "credit_account_id", referencedColumnName = "id")
     private Account creditAccount;
 

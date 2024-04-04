@@ -36,7 +36,7 @@ ___
 | id            | bigint        | id key of row - unique, not null, primary key |
 | client_id     | bigint        | client id                                     |         
 | name          | varchar(100)  | a name of account                             |
-| status        | varchar(20)   | status of tne account                         |                          
+| status        | varchar(20)   | status of the account                         |                          
 | balance       | decimal(15,2) | balance of the account in currency            | 
 | currency_code | varchar(20)   | account currency code                         |                          
 | created_at    | timestamp     | timestamp of row creation                     |
@@ -48,6 +48,7 @@ ___
 |---------------|---------------|----------------------------------------------------------------|
 | id            | bigint        | id key of row - unique, not null, primary key                  |
 | name          | varchar(70)   | product's name                                                 |
+| type          | varchar(20)   | product's type                                                 |
 | status        | varchar(20)   | product's status                                               |
 | currency_code | varchar(20)   | currency of agreement                                          |
 | interest_rate | decimal(6,1)	 | current interest rate of agreement                             | 

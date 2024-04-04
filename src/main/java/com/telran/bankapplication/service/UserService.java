@@ -1,12 +1,13 @@
 package com.telran.bankapplication.service;
 
 import com.telran.bankapplication.dto.UserDto;
-import com.telran.bankapplication.entity.User;
+import com.telran.bankapplication.entity.enums.UserStatus;
+
+import java.util.List;
 
 public interface UserService {
 
-    User updateUser(UserDto userDto);
+    Long createUser(UserDto userDto);
 
-    void deleteUserById(Long userId);
-
+    List<UserDto> getClientsWhereStatusIs(UserStatus userStatus);
 }

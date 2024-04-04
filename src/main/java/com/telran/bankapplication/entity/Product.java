@@ -1,15 +1,13 @@
 package com.telran.bankapplication.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.telran.bankapplication.entity.enums.CurrencyCode;
 import com.telran.bankapplication.entity.enums.ProductStatus;
+import com.telran.bankapplication.entity.enums.ProductType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -32,6 +30,10 @@ public class Product {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    private ProductType type;
+
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
@@ -46,15 +48,12 @@ public class Product {
     @Column(name = "product_limit")
     private BigDecimal productLimit;
 
-    @CreationTimestamp
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
 
-    @UpdateTimestamp
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
-    @JsonIgnore
     @OneToMany(
             mappedBy = "product", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
@@ -79,6 +78,7 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", type=" + type +
                 ", status=" + status +
                 ", currencyCode=" + currencyCode +
                 ", interestRate=" + interestRate +

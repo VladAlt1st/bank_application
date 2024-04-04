@@ -1,12 +1,9 @@
 package com.telran.bankapplication.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.telran.bankapplication.entity.enums.AccountStatus;
 import com.telran.bankapplication.entity.enums.CurrencyCode;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -27,8 +24,8 @@ public class Account {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "account_number")
+    private String accountNumber;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
@@ -41,15 +38,12 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private CurrencyCode currencyCode;
 
-    @CreationTimestamp
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
 
-    @UpdateTimestamp
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     private User client;
@@ -89,14 +83,12 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
                 ", status=" + status +
                 ", balance=" + balance +
                 ", currencyCode=" + currencyCode +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
-                ", client=" + client +
-                ", agreement=" + agreement +
                 '}';
     }
 }

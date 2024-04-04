@@ -2,44 +2,37 @@ package com.telran.bankapplication.service.impl;
 
 import com.telran.bankapplication.dto.UserDto;
 import com.telran.bankapplication.entity.User;
-import com.telran.bankapplication.entity.enums.Role;
 import com.telran.bankapplication.entity.enums.UserStatus;
+import com.telran.bankapplication.mapper.UserMapper;
 import com.telran.bankapplication.repository.UserRepository;
 import com.telran.bankapplication.service.UserService;
+import com.telran.bankapplication.service.exception.UserAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.NoSuchElementException;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
-    @Transactional
-    public User updateUser(UserDto userDto) {
-        User user = userRepository.findUserByTaxCode(userDto.getTaxCode()).orElseThrow(
-                NoSuchElementException::new
-        );
-
-        user.setRole(Role.valueOf(userDto.getRole()));
-        user.setStatus(UserStatus.valueOf(userDto.getStatus()));
-        user.setTaxCode(userDto.getTaxCode());
-        user.setFirstName(userDto.getFirstName());
-        user.setLastName(userDto.getLastName());
-        user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
-        user.setAddress(userDto.getAddress());
-        user.setPhone(userDto.getPhone());
-
-        return user;
+    public Long createUser(UserDto userDto) {
+        User createdUser = userMapper.toEntity(userDto);
+        try {
+            userRepository.save(createdUser);
+        } catch (DataIntegrityViolationException exception) {
+            throw new UserAlreadyExistsException(String.format("User with email %s already exists.", createdUser.getEmail()));
+        }
+        return createdUser.getId();
     }
 
     @Override
-    public void deleteUserById(Long userId) {
-        userRepository.deleteById(userId);
+    public List<UserDto> getClientsWhereStatusIs(UserStatus userStatus) {
+        return userMapper.toDtos(userRepository.getAllClientsByStatus(userStatus));
     }
 }

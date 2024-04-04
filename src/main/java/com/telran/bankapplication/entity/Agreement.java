@@ -3,8 +3,6 @@ package com.telran.bankapplication.entity;
 import com.telran.bankapplication.entity.enums.AgreementStatus;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -31,11 +29,9 @@ public class Agreement {
     @Column(name = "sum")
     private BigDecimal sum;
 
-    @CreationTimestamp
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
 
-    @UpdateTimestamp
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
